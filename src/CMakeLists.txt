@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
-project(hanoi-main)
+project(simple_thread_pool)
 
-add_subdirectory(hanoi-solver)
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES src/simple_thread_pool.cpp)
 
-add_executable(hanoi-main ${SOURCE_FILES})
-target_link_libraries(hanoi-main hanoi-solver)
+include_directories(${HEADERS_DIR})
 
-install(TARGETS hanoi-main DESTINATION ${BIN_DIR})
+add_library(simple_thread_pool SHARED STATIC ${SOURCE_FILES})
+
+install(TARGETS simple_thread_pool DESTINATION ${LIB_DIR})
+install(FILES simple_thread_pool.hpp DESTINATION ${INCLUDE_DIR})

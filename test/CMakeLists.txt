@@ -1,14 +1,15 @@
 cmake_minimum_required(VERSION 3.5)
-project(hanoi_solver_test)
+
+project(simple_thread_pool_test)
 
 add_subdirectory(lib/googletest)
 
 include_directories(${HEADERS_DIR})
 include_directories(lib/googletest/googletest/include)
 
-set(SOURCE_FILES main.cpp src/hanoi_solver_test.cpp)
+set(SOURCE_FILES main.cpp src/simple_thread_pool_test.cpp)
 
-add_executable(hanoi_solver_test ${SOURCE_FILES})
-target_link_libraries(hanoi_solver_test hanoi-solver gtest)
+add_executable(simple_thread_pool_test ${SOURCE_FILES})
+target_link_libraries(simple_thread_pool_test simple_thread_pool gtest)
 
-install(TARGETS hanoi_solver_test DESTINATION bin)
+install(TARGETS simple_thread_pool_test DESTINATION bin)

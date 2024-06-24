@@ -62,31 +62,13 @@ build() {
 }
 
 tests() {
-  if [[ -f bin/hanoi_solver_test ]]; then
+  if [[ -f bin/simple_thread_pool_test ]]; then
     run.set-next show-output-on
-    run "echo && bin/hanoi_solver_test"
+    run "echo && bin/simple_thread_pool_test"
   else
-    printf "${bldred}Can't find installed executable ${bldylw}bin/hanoi_solver_test.${clr}\n"
+    printf "${bldred}Can't find installed executable ${bldylw}bin/simple_thread_pool_test.${clr}\n"
     exit 2
   fi
-}
-
-examples() {
-  [[ ! -f bin/hanoi-main ]] && {
-    error "You don't have the cmpiled binary yet".
-    exit 3
-  }
-
-  run.set-all show-output-on
-
-  hr
-  run "bin/hanoi-main 2"
-  hr
-  run "bin/hanoi-main 3"
-  hr
-  run "bin/hanoi-main 4"
-  hr
-
 }
 
 main() {
@@ -94,7 +76,6 @@ main() {
   setup
   build
   tests
-  examples
 }
 
 (( $_s_ )) || main
